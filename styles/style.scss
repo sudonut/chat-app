@@ -1,8 +1,12 @@
+$primary-color: #1f2831;
+$secondary-color: #34404c;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
 body {
@@ -24,10 +28,31 @@ body {
 }
 
 .messages {
-  height: 76%;
+  min-height: 82vh;
+  max-height: 82vh;
   width: 77%;
   margin-bottom: 2%;
   border: 2px solid black;
+  overflow: auto;
+}
+
+#message {
+  display: flex;
+  align-items: center;
+  margin: 2%;
+  max-width: 92%;
+}
+
+#user {
+  font-size: 1.3rem;
+  margin-right: 1rem;
+}
+
+#msg-content {
+  font-size: 1.2rem;
+  background: $secondary-color;
+  border-radius: 11px;
+  padding: 1rem;
 }
 
 .msg-send {
@@ -36,7 +61,7 @@ body {
   border-radius: 10px;
   padding: 16px;
   font-size: 1.6rem;
-  background: #1f2831;
+  background: $primary-color;
   border: none;
   color: white;
 }
@@ -48,7 +73,7 @@ body {
 }
 
 .current-users {
-  background: #1f2831;
+  background: $primary-color;
 }
 
 #send {
