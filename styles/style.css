@@ -18,7 +18,67 @@ body {
   background: #192229;
 }
 
-.message-container {
+.form-container {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(31, 40, 49, 0.5);
+}
+
+.user-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50%;
+  width: 60%;
+  background: #1f2831;
+  border: solid 2px black;
+}
+
+.user-form h2 {
+  font-size: 1.8rem;
+}
+
+.user-form > input {
+  height: 11%;
+  width: 52%;
+  color: white;
+  padding: 10px;
+  background: #34404c;
+  border: none;
+  border-radius: 3px;
+  font-size: 1.8rem;
+}
+
+#submit-username {
+  height: 11%;
+  width: 23%;
+  font-size: 1.5rem;
+  background: #099bff;
+  border: none;
+  border-radius: 4px;
+}
+
+.app-container {
   height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -36,7 +96,7 @@ body {
           flex-direction: column;
 }
 
-.messages {
+.messages-container {
   min-height: 82vh;
   max-height: 82vh;
   width: 77%;
@@ -45,7 +105,7 @@ body {
   overflow: auto;
 }
 
-#message {
+#msg-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -61,14 +121,14 @@ body {
   margin-right: 1rem;
 }
 
-#msg-content {
+#message-text {
   font-size: 1.2rem;
   background: #34404c;
   border-radius: 11px;
   padding: 1rem;
 }
 
-.msg-send {
+.message-input {
   width: 88%;
   height: 4rem;
   border-radius: 10px;
@@ -103,7 +163,7 @@ body {
   color: white;
 }
 
-#send:hover {
+#send:hover, #submit-username:hover {
   cursor: pointer;
   opacity: 0.7;
   -webkit-transition: 0.3s;

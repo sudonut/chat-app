@@ -12,40 +12,23 @@
     <link rel="stylesheet" href="/styles/style.css">
   </head>
   <body>
-    <main class="message-container">
-      <section class="messages">
-        <div id="message">
+    <div class="form-container" id="modal-popup">
+      <form action="" class="user-form">
+        <h1>Welcome to my Chat application</h1>
+        <h2>What should we call you?</h2>
+        <input type="text" id="user-name-input">
+        <button id="submit-username">Enter the chat!</button>
+      </form>
+    </div>
+    <main class="app-container">
+      <section class="messages-container" id="msgs-container">
+        <div class="message-wrap" id="msg-wrap">
           <h3 id="user">Jonathan</h3>
-          <p id="msg-content">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
+          <p id="message-text">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
         </div>
-        <div id="message">
-          <h3 id="user">Jonathan</h3>
-          <p id="msg-content">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
-        </div>
-        <div id="message">
-          <h3 id="user">Jonathan</h3>
-          <p id="msg-content">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
-        </div>
-        <div id="message">
-          <h3 id="user">Jonathan</h3>
-          <p id="msg-content">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
-        </div>
-        <div id="message">
-          <h3 id="user">Jonathan</h3>
-          <p id="msg-content">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
-        </div>
-        <div id="message">
-          <h3 id="user">Jonathan</h3>
-          <p id="msg-content">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
-        </div>
-        <div id="message">
-          <h3 id="user">Jonathan</h3>
-          <p id="msg-content">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
-        </div>
-        
       </section>
       <div class="text-container">
-        <input type="text" id="message-send" class="msg-send">
+        <input type="text" id="msg-input" class="message-input" placeholder="What's on your mind?">
         <button id="send"><i class="far fa-paper-plane"></i></button>
       </div>
     </main>
