@@ -51,7 +51,6 @@ function createMessage() {
   allMessages.push(newId);
   messageContainer.appendChild(newMessageDiv);
 
-  // let message = new Message(currentUser, messageVal);
   let currentId = allMessages.slice(-1)[0];
 
   //Display user name
