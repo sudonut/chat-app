@@ -1,4 +1,5 @@
 let currentUser;
+let allMessages = [];
 
 document
   .getElementById("submit-username")
@@ -24,7 +25,7 @@ class Message {
 document.getElementById("msg-input").addEventListener("keydown", (e) => {
   if (e.keyCode === 13) {
     addMessage();
-  };
+  }
 });
 
 document.getElementById("send").addEventListener("click", addMessage);
@@ -32,18 +33,39 @@ document.getElementById("send").addEventListener("click", addMessage);
 function addMessage() {
   if (currentUser === undefined || "") {
     alert("Please select a username first.");
-    return
+    return;
   }
+  createMessage();
+}
+
+let messageCounter = 0;
+
+function createMessage() {
   let messageVal = document.getElementById("msg-input").value;
+
+  // Create new Message container
   let messageContainer = document.getElementById("msgs-container");
-  let newMessage = document.createElement("div");
-  newMessage.className = "message-wrap";
-  newMessage.id = "msg-wrap";
-  messageContainer.appendChild(newMessage);
+  let newMessageDiv = document.createElement("div");
+  newMessageDiv.className = "message-wrap";
+  let newId = (newMessageDiv.id = "msg" + messageCounter++);
+  allMessages.push(newId);
+  messageContainer.appendChild(newMessageDiv);
 
-  let message = new Message(currentUser, messageVal);
+  // let message = new Message(currentUser, messageVal);
+  let currentId = allMessages.slice(-1)[0];
 
-  console.log(message);
+  //Display user name
+  let messageContent = document.getElementById(currentId);
+  let userDisplay = document.createElement("h3");
+  userDisplay.textContent = currentUser;
+  userDisplay.className = "user-name";
+  messageContent.appendChild(userDisplay);
+
+  //Display user message
+  let messageText = document.createElement("p");
+  messageText.className = "message-text";
+  messageText.textContent = messageVal;
+  messageContent.appendChild(messageText);
 
   document.getElementById("msg-input").value = "";
 }
