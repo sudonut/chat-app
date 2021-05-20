@@ -1,30 +1,32 @@
 let currentUser;
 let allMessages = [];
 
-document
-  .getElementById("submit-username")
-  .addEventListener("click", function (e) {
+document.getElementById("submit-username").addEventListener("click", function (e) {
     e.preventDefault();
     (currentUser = document.getElementById("user-name-input").value),
-      (modalDisplay = document.getElementById("modal-popup"));
-
+    (modalDisplay = document.getElementById("modal-popup"));
     if (currentUser == "") {
-      console.log("Please enter a username");
+      alert("Please enter a username");
     } else {
       modalDisplay.style.display = "none";
     }
   });
 
-class Message {
-  constructor(user, message) {
-    this.user = user;
-    this.message = message;
-  }
-}
-
 document.getElementById("msg-input").addEventListener("keydown", (e) => {
   if (e.keyCode === 13) {
-    addMessage();
+    // let formSubmit = document.getElementById("form-data");
+
+    // formSubmit.addEventListener("submit", (e) => {
+    //   let form = e.target
+    //   const formData = new FormData(this);
+
+    //   fetch("/server/server.js", {
+    //     method: "POST",
+    //     body: formData
+    //   })
+    //   form.submit();
+    // });
+    addMessage();    
   }
 });
 
@@ -65,6 +67,4 @@ function createMessage() {
   messageText.className = "message-text";
   messageText.textContent = messageVal;
   messageContent.appendChild(messageText);
-
-  document.getElementById("msg-input").value = "";
 }

@@ -37,14 +37,8 @@
           </p>
         </div>
       </section>
-      <form action="/api" method="POST" class="text-container" id="form-data" name="fetch">
-        <input
-          type="text"
-          name="message"
-          id="msg-input"
-          class="message-input"
-          placeholder="What's on your mind?"
-        />
+      <form action="/server/server.js" method="POST" class="text-container" id="form-data" name="fetch">
+        <input type="text" name="message" id="msg-input" class="message-input" placeholder="What's on your mind?"/>
         <button type="submit" id="send"><i class="far fa-paper-plane"></i></button>
       </form>
     </main>
