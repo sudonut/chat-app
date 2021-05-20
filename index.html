@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Chat App</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://kit.fontawesome.com/37cb0d4f63.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="/styles/style.css">
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/37cb0d4f63.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/public/styles/style.css" />
   </head>
   <body>
     <div class="form-container" id="modal-popup">
       <form action="" class="user-form">
         <h1>Welcome to my Chat application</h1>
         <h2>What should we call you?</h2>
-        <input type="text" id="user-name-input">
+        <input type="text" id="user-name-input" />
         <button id="submit-username">Enter the chat!</button>
       </form>
     </div>
@@ -24,17 +30,25 @@
       <section class="messages-container" id="msgs-container">
         <div class="message-wrap" id="msg-wrap">
           <h3 id="user" class="user-name">Jonathan</h3>
-          <p class="message-text">Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant vulputate at nec, an discere scribentur signiferumque sea. Pro ad utinam invenire, eam nihil propriae in. A wing of hope we cast on </p>
+          <p class="message-text">
+            Lorem ipsum dolor sit amet, copiosae consetetur mei no, justo erant
+            vulputate at nec, an discere scribentur signiferumque sea. Pro ad
+            utinam invenire, eam nihil propriae in. A wing of hope we cast on
+          </p>
         </div>
       </section>
-      <div class="text-container">
-        <input type="text" id="msg-input" class="message-input" placeholder="What's on your mind?">
-        <button id="send"><i class="far fa-paper-plane"></i></button>
-      </div>
+      <form action="/api" method="POST" class="text-container" id="form-data" name="fetch">
+        <input
+          type="text"
+          name="message"
+          id="msg-input"
+          class="message-input"
+          placeholder="What's on your mind?"
+        />
+        <button type="submit" id="send"><i class="far fa-paper-plane"></i></button>
+      </form>
     </main>
-    <aside class="current-users">
-
-    </aside>
-    <script src="/script/script.js" async defer></script>
+    <aside class="current-users"></aside>
+    <script src="/public/script/script.js" async defer></script>
   </body>
 </html>
