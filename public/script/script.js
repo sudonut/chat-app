@@ -14,18 +14,6 @@ document.getElementById("submit-username").addEventListener("click", function (e
 
 document.getElementById("msg-input").addEventListener("keydown", (e) => {
   if (e.keyCode === 13) {
-    // let formSubmit = document.getElementById("form-data");
-
-    // formSubmit.addEventListener("submit", (e) => {
-    //   let form = e.target
-    //   const formData = new FormData(this);
-
-    //   fetch("/server/server.js", {
-    //     method: "POST",
-    //     body: formData
-    //   })
-    //   form.submit();
-    // });
     addMessage();    
   }
 });
@@ -37,14 +25,25 @@ function addMessage() {
     alert("Please select a username first.");
     return;
   }
-  createMessage();
 }
 
 let messageCounter = 0;
 
-function createMessage() {
-  let messageVal = document.getElementById("msg-input").value;
+let socket = io();
 
+let form = document.getElementById("form-data");
+let input = document.getElementById("msg-input");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (input.value) {
+    socket.emit("chat message", input.value);
+    input.value = "";
+  }
+});
+
+socket.on("chat message", (msg) => {
+  console.log("TESTING THIS MESSAGE SEND")
   // Create new Message container
   let messageContainer = document.getElementById("msgs-container");
   let newMessageDiv = document.createElement("div");
@@ -65,6 +64,6 @@ function createMessage() {
   //Display user message
   let messageText = document.createElement("p");
   messageText.className = "message-text";
-  messageText.textContent = messageVal;
+  messageText.textContent = msg;
   messageContent.appendChild(messageText);
-}
+})
