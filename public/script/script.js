@@ -12,23 +12,6 @@ document.getElementById("submit-username").addEventListener("click", function (e
     }
   });
 
-document.getElementById("msg-input").addEventListener("keydown", (e) => {
-  if (e.keyCode === 13) {
-    addMessage();    
-  }
-});
-
-document.getElementById("send").addEventListener("click", addMessage);
-
-function addMessage() {
-  if (currentUser === undefined || "") {
-    alert("Please select a username first.");
-    return;
-  }
-}
-
-let messageCounter = 0;
-
 let socket = io();
 
 let form = document.getElementById("form-data");
@@ -42,29 +25,30 @@ form.addEventListener("submit", (e) => {
   }
 });
 
+let messageCounter = 0;
+
 socket.on("chat message", (msg) => {
-  console.log("TESTING THIS MESSAGE SEND")
-  // Create new Message container
-  let messageContainer = document.getElementById("msgs-container");
-  let newMessageDiv = document.createElement("div");
-  newMessageDiv.className = "message-wrap";
-  let newId = (newMessageDiv.id = "msg" + messageCounter++);
+  // Create new Message wrapper
+  let msgWindow = document.getElementById("msgs-container");
+  let msgWrap = document.createElement("div");
+  msgWrap.className = "message-wrap";
+  let newId = (msgWrap.id = "msg" + messageCounter++);
   allMessages.push(newId);
-  messageContainer.appendChild(newMessageDiv);
+  msgWindow.appendChild(msgWrap);
 
   let currentId = allMessages.slice(-1)[0];
 
   //Display user name
   let messageContent = document.getElementById(currentId);
-  let userDisplay = document.createElement("h3");
-  userDisplay.textContent = currentUser;
-  userDisplay.className = "user-name";
-  messageContent.appendChild(userDisplay);
+  let userItem = document.createElement("h3");
+  userItem.textContent = currentUser;
+  userItem.className = "user-name";
+  messageContent.appendChild(userItem);
 
   //Display user message
-  let messageText = document.createElement("p");
-  messageText.className = "message-text";
-  messageText.textContent = msg;
-  messageContent.appendChild(messageText);
-  messageContainer.scrollTo(0, document.body.scrollHeight);
+  let msgItem = document.createElement("p");
+  msgItem.className = "message-text";
+  msgItem.textContent = msg;
+  messageContent.appendChild(msgItem);
+  msgWindow.scrollTo(0, document.body.scrollHeight);
 })
