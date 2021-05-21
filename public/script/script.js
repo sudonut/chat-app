@@ -66,4 +66,4 @@ socket.on("chat message", (msg) => {
   messageText.className = "message-text";
   messageText.textContent = msg;
   messageContent.appendChild(messageText);
-})
+});
