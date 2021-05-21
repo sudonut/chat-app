@@ -43,6 +43,22 @@
       </form>
     </main>
     <aside class="current-users"></aside>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      let socket = io();
+
+      let form = document.getElementById("form-data");
+      let input = document.getElementById("msg-input");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (input.value) {
+          socket.emit("chat message", input.value);
+          input.value = "";
+        }
+      })
+    </script>
     <script src="/public/script/script.js" async defer></script>
   </body>
 </html>

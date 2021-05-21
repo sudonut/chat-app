@@ -2,11 +2,18 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const MongoClient = require("mongodb").MongoClient;
-const dbPass = ""
-const dbName = ""
+const http = require("http");
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+const dbName = null
+const dbPass = null
+
 let connectionString =
   `mongodb+srv://${dbName}:${dbPass}@cluster0.r4g8r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
+  // Send data to the database when the user sends a messgae
 MongoClient.connect(`${connectionString}`, {
   useUnifiedTopology: true,
 })
@@ -34,14 +41,29 @@ MongoClient.connect(`${connectionString}`, {
     console.error(error);
   });
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(3000, () => {
-  console.log("Listening on port 3000..");
+
+io.on("connection", (socket) => {
+  console.log("A user connected!");
+  socket.on("disconnect", () => {
+    console.log("User disconnected...")
+  })
 });
+
+io.on("connection", (socket) => {
+  socket.on("chat message", (msg) => {
+    console.log("message: " + msg);
+  })
+})
 
 app.use("/public", express.static("public"));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "/index.html"));
+});
+
+server.listen(3000, () => {
+  console.log("Listening on port 3000..");
 });
